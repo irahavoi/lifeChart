@@ -85,7 +85,7 @@ svg.weeksLegend{
   left: 0;
 }
 
-#errorMsg, #weekCellContainer{
+#errorMsg, #weekCellContainer, #lifeChartContainer{
     display: none;
 }
 

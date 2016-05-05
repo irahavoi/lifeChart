@@ -18,6 +18,7 @@
     function vizualizeLifeChart(){
         if(validate()){
              var svg = d3.select("svg");
+            $("#lifeChartContainer").show();
             dateOfBirth = Date.parse($("#dateOfBirth").val());
 
             currentAgeInWeeks = weeksUntilToday(dateOfBirth);
@@ -33,8 +34,8 @@
               .attr('class', 'd3-tip')
               .offset([-10, 0])
               .html(function(d) {
-                return "<strong>Week:</strong> <span style='color:red'>" + (d.index + 1) + "</span></strong>" +
-                "<p><small>" + $.datepicker.formatDate(dateFormat,d.weekStartDate) + "  -  " + $.datepicker.formatDate(dateFormat,d.weekEndDate) + "</small></p>";
+                return "<strong>Week:</strong> <span style='color:red'>" + (d.index + 1) + ":&nbsp;</span></strong>" +
+                getWeekDateRangeString(d);
               });
 
             svg.call(tip);
@@ -80,10 +81,14 @@
         }
     }
 
-    function showCellFragment(d){
+    function showCellFragment(d,i){
         console.log('showing cell fragment..');
         console.log(d);
         $("#lifeChartContainer").attr("class", "col-md-7");
+
+        $("#selectedWeekHeader").html(i + 1 + ": " + getWeekDateRangeString(d));
+
+
         $("#weekCellContainer").show();
 
         d3.selectAll("rect.selectedWeek")
@@ -93,7 +98,7 @@
         d3.select(this)
             .classed("selectedWeek", true)
             .attr("stroke", "yellow")
-            .attr("stroke-width", 4);
+            .attr("stroke-width", 5);
     }
 
     function getWeeks(){
@@ -156,6 +161,10 @@
         }
 
         $.snackbar(options);
+    }
+
+    function getWeekDateRangeString(d){
+        return "<span>" + $.datepicker.formatDate(dateFormat,d.weekStartDate) + "  -  " + $.datepicker.formatDate(dateFormat,d.weekEndDate) + "</span>"
     }
 
     $( document ).ready(function()
