@@ -45,6 +45,7 @@
             .data(getWeeks())
             .enter()
             .append("rect")
+            .attr('class', 'week')
             .style("opacity", .6)
             .attr("fill", "gray")
             .attr("height", cellOffset - 1)
@@ -75,13 +76,24 @@
             });
 
             $("#legend").show();
-            showQuoteSnackBar();
+            showSnackBar("This is your life and it's ending one minute at a time.");
         }
     }
 
     function showCellFragment(d){
         console.log('showing cell fragment..');
         console.log(d);
+        $("#lifeChartContainer").attr("class", "col-md-7");
+        $("#weekCellContainer").show();
+
+        d3.selectAll("rect.selectedWeek")
+            .classed("selectedWeek", false)
+            .attr("stroke-width", 0);
+
+        d3.select(this)
+            .classed("selectedWeek", true)
+            .attr("stroke", "yellow")
+            .attr("stroke-width", 4);
     }
 
     function getWeeks(){
@@ -137,10 +149,9 @@
         $("#errorMsg").hide();
     }
 
-    function showQuoteSnackBar(){
+    function showSnackBar(msg){
         var options =  {
-            content: "This is your life and it's ending one minute at a time.", // text of the snackbar
-            style: "snackbar snackbar-opened", // add a custom class to your snackbar
+            content: msg, // text of the snackbar
             timeout: 5000 // time in milliseconds after the snackbar autohides, 0 is disabled
         }
 

@@ -9,10 +9,8 @@ body{
 .controls{
     padding-top: 50px;
 }
-.center{
+.lifeChart-block{
     max-width: 600px;
-    width: 100%;
-    margin: auto;
 }
 
 .jumbotron{
@@ -49,7 +47,7 @@ svg{
 }
 
 svg.weeksLegend{
-    height: 90px;
+    height: 22px;
     min-width: 550px;
 }
 
@@ -87,7 +85,7 @@ svg.weeksLegend{
   left: 0;
 }
 
-#errorMsg{
+#errorMsg, #weekCellContainer{
     display: none;
 }
 
@@ -126,4 +124,8 @@ div.mainForm{
   -moz-transform: none;
   -webkit-transform: none;
   transform: none;
+}
+
+rect.week{
+    cursor:pointer;
 }

@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="col-md-2">
-                        <a href="#" class="btn btn-raised btn-success" id="vizualizeLifeChartBtn" >Go!</a>
+                        <a href="#" class="btn btn-raised btn-success" id="vizualizeLifeChartBtn" >Continue</a>
                     </div>
                 </div>
             </div>
@@ -42,31 +42,33 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div id="lifeChartContainer" class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-body">
-                        <svg height="0" id="calendar"></svg>
-                        <div id="legend">
-                            <svg class="weeksLegend">
-                                <g class="weeksLegendItem past">
-                                    <rect y ="0" class="week"></rect>
-                                    <text x="15" y ="10" fill="red">Past</text>
-                                </g>
-                                <g class="weeksLegendItem present">
-                                    <rect y ="30" class="week"></rect>
-                                    <text x="15" y ="40" fill="green">Present</text>
-                                </g>
+                        <div class="center-block lifeChart-block">
+                            <svg height="0" id="calendar"></svg>
+                            <div id="legend">
+                                <svg class="weeksLegend">
+                                    <g class="weeksLegendItem past">
+                                        <rect y ="10" x="0" class="week"></rect>
+                                        <text x="15" y ="20" fill="red">Past</text>
+                                    </g>
+                                    <g class="weeksLegendItem present">
+                                        <rect y ="10" x="55" class="week"></rect>
+                                        <text y ="20" x="70" fill="green">Present</text>
+                                    </g>
 
-                                <g class="weeksLegendItem future">
-                                    <rect y ="60" class="week"></rect>
-                                    <text x="15" y ="70" fill="gray">Future</text>
-                                </g>
-                            </svg>
+                                    <g class="weeksLegendItem future">
+                                        <rect y ="10" x="125" class="week"></rect>
+                                        <text x="140" y ="20" fill="gray">Future</text>
+                                    </g>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div id="weekCellContainer" class="col-md-5">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <p>Hello.</p>
