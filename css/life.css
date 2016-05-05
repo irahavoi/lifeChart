@@ -96,3 +96,34 @@ svg.weeksLegend{
   bottom:30px;
   right: 30px;
 }
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+div.mainForm{
+    padding: 20px;
+}
+
+/* Snackbar */
+.snackbar.snackbar-opened {
+  opacity: .9;
+  padding: 14px 15px;
+  margin-bottom: 20px;
+  height: auto;
+  -moz-transition: -moz-transform 0.5s ease-in-out, opacity 0.5s ease-in, height 0 linear 0.5s;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in, height 0 linear 0.5s;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in, height 0 linear 0.5s, height 0 linear 0.5s;
+  -moz-transform: none;
+  -webkit-transform: none;
+  transform: none;
+}

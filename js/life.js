@@ -63,7 +63,8 @@
             .on("mouseout", function(d){
                 tip.hide();
                 d3.select(this).style({opacity:'0.6'});
-            });
+            })
+            .on("click", showCellFragment);
 
             d3.select("svg").selectAll("rect")
             .transition()
@@ -74,7 +75,13 @@
             });
 
             $("#legend").show();
+            showQuoteSnackBar();
         }
+    }
+
+    function showCellFragment(d){
+        console.log('showing cell fragment..');
+        console.log(d);
     }
 
     function getWeeks(){
@@ -128,6 +135,16 @@
 
     function closeErrorMsg(){
         $("#errorMsg").hide();
+    }
+
+    function showQuoteSnackBar(){
+        var options =  {
+            content: "This is your life and it's ending one minute at a time.", // text of the snackbar
+            style: "snackbar snackbar-opened", // add a custom class to your snackbar
+            timeout: 5000 // time in milliseconds after the snackbar autohides, 0 is disabled
+        }
+
+        $.snackbar(options);
     }
 
     $( document ).ready(function()

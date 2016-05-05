@@ -8,58 +8,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="css/snackbar.min.css">
     <link rel="stylesheet" type="text/css" href="css/life.css">
     
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <div class="center controls">
-        <div id="errorMsg" class="alert alert-dismissible alert-warning">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          <h4>Oops!</h4>
-          <p id="errorMsgTxt"></p>
-        </div>
-        <div class="form-group">
-          <div class="col-md-5">
-             <input type="text" readonly="readonly" class="form-control datepicker" placeholder="Your date of birth" id="dateOfBirth" data-date-format="mm/dd/yyyy">
-          </div>
-          <div class="col-md-5">
-              <input type="number" min="18" max="100" class="form-control" placeholder="Planned Retirement Age" id="retirementAge" data-date-format="mm/dd/yyyy">
-          </div>
+    <div class="container mainForm">
+        <div class="row row-centered">
+            <div id="errorMsg" class="alert alert-dismissible alert-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h4>Oops!</h4>
+                <p id="errorMsgTxt"></p>
+            </div>
+            <div class="col-md-6 col-centered">
+                <div class="form-group">
+                    <div class="col-md-5">
+                        <input type="text" readonly="readonly" class="form-control datepicker" placeholder="Your date of birth" id="dateOfBirth" data-date-format="mm/dd/yyyy">
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" min="18" max="100" class="form-control" placeholder="Planned Retirement Age" id="retirementAge" data-date-format="mm/dd/yyyy">
+                    </div>
 
-          <div class="col-md-2">
-              <a href="#" class="btn btn-raised btn-success" id="vizualizeLifeChartBtn">Go!</a>
-          </div>
+                    <div class="col-md-2">
+                        <a href="#" class="btn btn-raised btn-success" id="vizualizeLifeChartBtn" >Go!</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="center">
-        <svg height="0"></svg>
-        <div id="legend">
-            <svg class="weeksLegend">
-                <g class="weeksLegendItem past">
-                    <rect y ="0" class="week"></rect>
-                    <text x="15" y ="10" fill="red">Red cells represent weeks you've lived</text>
-                </g>
-                <g class="weeksLegendItem present">
-                    <rect y ="30" class="week"></rect>
-                    <text x="15" y ="40" fill="green">You're here. Green cell is the current week</text>
-                </g>
 
-                <g class="weeksLegendItem future">
-                    <rect y ="60" class="week"></rect>
-                    <text x="15" y ="70" fill="gray">Gray cells are the remaining weeks</text>
-                </g>
-            </svg>
-            <blockquote id="caption">
-                <small><cite title="Chuck Palahniuk">This is your life and it's ending one minute at a time.</cite></small>
-            </blockquote>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <svg height="0" id="calendar"></svg>
+                        <div id="legend">
+                            <svg class="weeksLegend">
+                                <g class="weeksLegendItem past">
+                                    <rect y ="0" class="week"></rect>
+                                    <text x="15" y ="10" fill="red">Past</text>
+                                </g>
+                                <g class="weeksLegendItem present">
+                                    <rect y ="30" class="week"></rect>
+                                    <text x="15" y ="40" fill="green">Present</text>
+                                </g>
+
+                                <g class="weeksLegendItem future">
+                                    <rect y ="60" class="week"></rect>
+                                    <text x="15" y ="70" fill="gray">Future</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <p>Hello.</p>
+                    </div>
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra
+                        varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt
+                        condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis
+                        nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
+                        accumsan. Aliquam in felis sit amet augue.</div>
+                </div>
+            </div>
         </div>
     </div>
+
     <a id="githubLink" href="https://github.com/irahavoi" target="_blank">by Illia Rahavoi</a>
 </body>
-<style type="text/css">
-
-</style>
 <script type="text/javascript" src="js/lib/d3.js"></script>
 <script src="js/lib/colorbrewer.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -68,5 +91,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.min.js"></script>
 <script src="js/lib/bootstrap-datepicker.min.js"></script>
+<script src="js/lib/snackbar.min.js"></script>
 <script src="js/life.js"></script>
 </html>
